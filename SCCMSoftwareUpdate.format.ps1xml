@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>XV5.AJP.SCCM.SoftwareUpdate.Get</Name>
+            <ViewSelectedBy>
+                <TypeName>XV5.AJP.SCCM.SoftwareUpdate.Get</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>
+                        <Label>ComputerName</Label>
+                        <Width>20</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>ArticleId</Label>
+                        <Width>10</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>EvaluationState</Label>
+                        <Width>15</Width>
+                    </TableColumnHeader>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>ComputerName</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>ArticleId</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>
+                                    switch ($PSItem.EvaluationState) {
+                                        0 {'PendingInstall'} 
+                                        3 {'Detecting'} 
+                                        5 {'Downloading'} 
+                                        6 {'AwaitingInstall'} 
+                                        7 {'Installing'} 
+                                        11 {'Verifying'} 
+                                        8 {'PendingReboot'}
+                                        9 {'PendingReboot'}
+                                        10 {'PendingReboot'}
+                                        12 {'InstallComplete'} 
+                                        13 {'Failed'} 
+                                        default {'Unknown'}
+                                    }
+                                </ScriptBlock>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                 </TableRowEntries>
+            </TableControl>
+        </View>        
+    </ViewDefinitions>
+</Configuration>

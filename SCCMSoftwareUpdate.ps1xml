@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Types>
+    <Type>
+        <Name>XV5.AJP.SCCM.SoftwareUpdate.Get</Name>
+            <Members>
+                <ScriptProperty>
+                    <Name>EvaluationState</Name>
+                    <GetScriptBlock>
+                        get-date
+                    </GetScriptBlock>
+                </ScriptProperty>
+            </Members>
+    </Type>
+</Types>
